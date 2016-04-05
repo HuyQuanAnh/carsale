@@ -1,0 +1,37 @@
+﻿@model Carsale.Web.Models.CardetailsEnquiry
+
+@{
+    ViewBag.Title = "EnquiryConfirmation";
+}
+<div class="row">
+    <div class="leftItem" style="width: 100%">
+        <h2>Enquiry Confirmation</h2>
+    </div>
+</div>
+<div class="row">
+    @if (Model.ResponseDetails != null && !Model.ResponseDetails.IsSuccessful)
+    {
+       <div>
+            There was an error occured.<br/>
+            Your information and comments failed to be sent to the @Model.CarDetailsModel.DealerEmail. Error message @Model.ResponseDetails.Message
+        </div>
+
+    }
+    else if (!((bool)ViewBag.EnableNotification))
+    {
+        <div>
+            Thank you for submitting an enquiry.<br />
+            Your information and comments has been submitted. There is no confirmation email sent out. The email notification is disabled in the configuration file.
+        </div>
+    }
+    else    
+    {
+        <div>
+            Thank you for submitting an enquiry.<br />
+            Your information and comments has been sent to the @Model.CarDetailsModel.DealerEmail.
+        </div>
+    }
+
+
+</div>
+

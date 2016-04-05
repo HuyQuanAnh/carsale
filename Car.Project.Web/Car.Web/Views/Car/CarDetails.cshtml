@@ -1,0 +1,99 @@
+﻿@model Carsale.Web.Models.CardetailsEnquiry
+@{
+    ViewBag.Title = "Car Details";
+}
+@using (Html.BeginForm("EnquiryConfirmation", "Car", FormMethod.Post))
+{
+    if (!string.IsNullOrEmpty(Model.CarDetailsModel.Photo))
+    {
+        <div style="margin-top: 40px;">
+            <img width="600" height="400" src="@Url.Content("~/CarImages/" + Model.CarDetailsModel.Photo)" />
+        </div>
+    }
+    <div class="row">
+        <div class="leftItem">Make</div>
+        <div class="rightItem"> @Model.CarDetailsModel.Make</div>
+    </div>
+    <div class="row">
+        <div class="leftItem">Year</div>
+        <div class="rightItem">@Model.CarDetailsModel.Year</div>
+    </div>
+    <div class="row">
+        <div class="leftItem">Price</div>
+        <div class="rightItem">@Model.CarDetailsModel.Price</div>
+    </div>
+    <div class="row">
+        <div class="leftItem">Dealer Email</div>
+        <div class="rightItem">@Model.CarDetailsModel.DealerEmail</div>
+    </div>
+    <div class="row">
+        <div class="leftItem">Dealer Contact </div>
+        <div class="rightItem">@Model.CarDetailsModel.DealerContact</div>
+    </div>
+    <div class="row">
+        <div class="leftItem">Phone  </div>
+        <div class="rightItem">@Model.CarDetailsModel.Phone</div>
+    </div>
+    <div class="row">
+        <div class="leftItem">Dealer ABN   </div>
+        <div class="rightItem">@Model.CarDetailsModel.DealerABN</div>
+    </div>
+    <div class="row">
+        <div class="leftItem">Vehicle description</div>
+        <div class="rightItem">@Model.CarDetailsModel.Description</div>
+    </div><br />
+    if (string.Equals(ViewBag.UserRole, Carsale.Security.Enum.UserRole.User.ToString(), StringComparison.CurrentCultureIgnoreCase))
+    {
+        <h2>Enquire on this car</h2>
+        <div>
+            <div class="row">
+                <div class="leftItem">Name</div>
+                <div class="rightItem">@Html.TextBoxFor(a => a.EnquiryModel.Name, new { maxlength = 50, @id = "txtName", @class = "textbox" }) <span class="mandatory">*</span> </div>
+            </div>
+            <div class="row">
+                <div class="leftItem">Email</div>
+                <div class="rightItem">@Html.TextBoxFor(a => a.EnquiryModel.Email, new { maxlength = 50, @id = "txtEmail", @class = "textbox" }) <span class="mandatory">*</span></div>
+            </div>
+            <div class="row">
+                <div class="leftItem">Contact Phone</div>
+                <div class="rightItem">@Html.TextBoxFor(a => a.EnquiryModel.ContactPhone, new { maxlength = 20, @class = "textbox" }) </div>
+                @Html.ValidationMessageFor(m => m.EnquiryModel.ContactPhone)
+            </div>
+            <div class="row">
+                <div class="leftItem">Vehicle description</div>
+                <div class="rightItem">@Html.TextAreaFor(a => a.EnquiryModel.Comment, new { maxlength = 300, @class = "textbox" }) </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="leftItem"></div>
+                <div class="rightItem">
+                    <div class="error" style="padding-left: 200px;">
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="padding-left:322px; ">
+
+                <input id="btnSubmit" type="submit" value="Send Enquiry" onclick="return validateEnquiryDetails()">
+                @Html.HiddenFor(a => a.CarDetailsModel.Id)
+                @Html.HiddenFor(a => a.CarDetailsModel.DealerEmail)
+            </div>
+        </div>
+    }
+    <script type="text/javascript">
+        function validateEnquiryDetails() {
+            if ($.trim($("#txtName").val()).length == 0) {
+                $(".error").html("Name can not be empty.")
+                return false;
+            }
+            if ($.trim($("#txtEmail").val()).length == 0) {
+                $(".error").html("Email can not be empty.")
+                return false;
+            }
+            else if (!isEmailAddress($("#txtEmail").val())) {
+                $(".error").html("Email is not correct format");
+                return false;
+            }
+            return true;
+        }
+    </script>
+}

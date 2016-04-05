@@ -1,0 +1,11 @@
+C:\Temp\Huy\KelVin_CarWen\Car.Project.Web\Carsale.Security\bin\Release\Carsale.Security.dll
+C:\Temp\Huy\KelVin_CarWen\Car.Project.Web\Carsale.Security\bin\Release\Carsale.Security.pdb
+C:\Temp\Huy\KelVin_CarWen\Car.Project.Web\Carsale.Security\bin\Release\Microsoft.Practices.Unity.dll
+C:\Temp\Huy\KelVin_CarWen\Car.Project.Web\Carsale.Security\bin\Release\Microsoft.Practices.Unity.xml
+C:\Temp\Huy\KelVin_CarWen\Car.Project.Web\Carsale.Security\obj\Release\Carsale.Security.csprojResolveAssemblyReference.cache
+C:\Temp\Huy\KelVin_CarWen\Car.Project.Web\Carsale.Security\obj\Release\Carsale.Security.dll
+C:\Temp\Huy\KelVin_CarWen\Car.Project.Web\Carsale.Security\obj\Release\Carsale.Security.pdb
+C:\Temp\Huy\KelVin_CarWen\Car.Project.Web\Carsale.Security\bin\Release\Newtonsoft.Json.dll
+C:\Temp\Huy\KelVin_CarWen\Car.Project.Web\Carsale.Security\bin\Release\NLog.dll
+C:\Temp\Huy\KelVin_CarWen\Car.Project.Web\Carsale.Security\bin\Release\Newtonsoft.Json.xml
+C:\Temp\Huy\KelVin_CarWen\Car.Project.Web\Carsale.Security\bin\Release\NLog.xml

@@ -1,0 +1,11 @@
+C:\Temp\Huy\KelVin_CarWen\Car.Project.Web\Carsale.Data\obj\Release\Carsale.Data.csprojResolveAssemblyReference.cache
+C:\Temp\Huy\KelVin_CarWen\Car.Project.Web\Carsale.Data\bin\Release\Carsale.Data.dll
+C:\Temp\Huy\KelVin_CarWen\Car.Project.Web\Carsale.Data\bin\Release\Carsale.Data.pdb
+C:\Temp\Huy\KelVin_CarWen\Car.Project.Web\Carsale.Data\bin\Release\Microsoft.Practices.Unity.dll
+C:\Temp\Huy\KelVin_CarWen\Car.Project.Web\Carsale.Data\bin\Release\Newtonsoft.Json.dll
+C:\Temp\Huy\KelVin_CarWen\Car.Project.Web\Carsale.Data\bin\Release\Microsoft.Practices.Unity.xml
+C:\Temp\Huy\KelVin_CarWen\Car.Project.Web\Carsale.Data\bin\Release\Newtonsoft.Json.xml
+C:\Temp\Huy\KelVin_CarWen\Car.Project.Web\Carsale.Data\obj\Release\Carsale.Data.dll
+C:\Temp\Huy\KelVin_CarWen\Car.Project.Web\Carsale.Data\obj\Release\Carsale.Data.pdb
+C:\Temp\Huy\KelVin_CarWen\Car.Project.Web\Carsale.Data\bin\Release\NLog.dll
+C:\Temp\Huy\KelVin_CarWen\Car.Project.Web\Carsale.Data\bin\Release\NLog.xml

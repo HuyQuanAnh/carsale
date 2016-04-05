@@ -1,0 +1,28 @@
+﻿@using Carsale.Web.Models
+@model IList<EnquiryModel>
+@{
+    ViewBag.Title = "CarEnquiries";
+}
+
+<div class="row">
+    @if(Model == null || Model.Count == 0)
+    {
+        <div>This car has no enquiry.</div>
+    }
+    <table>
+        @foreach (var enquiry in Model)
+        {
+            <tr>
+                <td style="background-color: blue; color: white; font-weight: bold;">
+                    @enquiry.Name  @enquiry.ContactPhone @enquiry.Email
+                </td>
+            </tr>
+            <tr>
+                
+                <td>
+                    <div>@enquiry.Comment</div>
+                <td>
+            </tr>
+        }
+    </table>
+</div>

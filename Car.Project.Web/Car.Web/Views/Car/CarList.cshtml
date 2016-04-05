@@ -1,0 +1,55 @@
+﻿@using Carsale.Web.Models
+@model IList<CarDetailsModel>
+@{
+    ViewBag.Title = "Cars";
+} 
+@if (Model != null)
+{
+    <div class="row">
+        <div class="leftItem">
+            <b>@Model.Count()</b> car(s) found
+        </div>
+    </div>
+}
+<div>
+    <table>
+        @foreach (var car in Model)
+        {   
+            <tr>
+                <td colspan="2" style="background-color: blue; color: white; font-weight: bold;">
+                    @car.Year @car.Make @car.Model 
+                </td>
+            </tr>          
+            <tr>
+                <td>
+                    <img width="200" height="100" src="@Url.Content("~/CarImages/"+car.Photo)" />
+                </td>
+                <td>                    
+                    <div>@car.Description</div>                    
+                <td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    @*TODO: create the custom link to check if it should be rendered*@
+                    @if (string.Equals(ViewBag.UserRole, Carsale.Security.Enum.UserRole.Dealer.ToString(), StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        <div class="rightActionItem">
+                            @Html.ActionLink("Revmove", "RemoveCar", "Car", new { id = @car.Id }, null)
+                        </div>
+                     <div class="rightActionItem">
+                        @Html.ActionLink("Edit Details", "Car", "Car", new { id = @car.Id }, null)
+                    </div>
+                         <div class="rightActionItem">
+                        @Html.ActionLink("View Enquiries", "CarEnquiries", "Car", new { id = @car.Id }, null)
+                    </div>
+                    }       
+                    <div class="rightActionItem">
+                        @Html.ActionLink("View Details", "CarDetails", "Car", new { id = @car.Id }, null)
+                    </div>                  
+                </td>
+                <td>
+            </tr>
+        }
+    </table>
+</div>

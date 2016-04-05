@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="body">
+        <div class="Logo_banner">
+        </div>
+        @if (ViewBag.Title != "Login")
+        {
+            <div>
+                <div class="topMenu">
+                    @Html.ActionLink("Car List", "CarList", "Car")
+                </div>              
+               @if (string.Equals(ViewBag.UserRole, Carsale.Security.Enum.UserRole.Dealer.ToString(), StringComparison.CurrentCultureIgnoreCase))
+                {
+                    <div class="topMenu">
+                        @Html.ActionLink("Add Car", "Car", "Car")
+                    </div>
+                }
+                <div class="rightActionItem">
+                    @Html.ActionLink("Log off", "LogOff", "Home")
+                </div>
+            </div>
+        }
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/carsale")    
+    @RenderSection("scripts", required: false)
+</body>
+</html>

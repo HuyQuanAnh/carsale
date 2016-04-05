@@ -1,0 +1,104 @@
+﻿@model Carsale.Web.Models.CarDetailsModel
+
+@{
+    ViewBag.Title = "Add Car";
+}
+<div>
+    <div class="row">
+        <div class="leftItem">
+            <h2>Add Car</h2>
+        </div>
+    </div>
+    @using (Html.BeginForm("Car", "Car", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        if (!string.IsNullOrEmpty(@Model.Photo))
+        {
+            <div style="margin-top: 40px;">
+                <img width="600" height="400" src="@Url.Content("~/CarImages/" + @Model.Photo)" />
+            </div>
+        }
+        <div class="row">
+            <div class="leftItem">Make</div>
+            <div class="rightItem">@Html.TextBoxFor(a => a.Make, new { maxlength = 20, @class = "textbox" })</div>
+        </div>
+        <div class="row">
+            <div class="leftItem">Year</div>
+            <div class="rightItem">@Html.TextBoxFor(a => a.Year, new { id = "txtYear", maxlength = 4, @class = "textbox" })</div>
+        </div>
+        <div class="row">
+            <div class="leftItem">Price</div>
+            <div class="rightItem">@Html.TextBoxFor(a => a.Price, new { id = "txtPrice", maxlength = 10, @class = "textbox" })</div>
+        </div>
+        <div class="row">
+            <div class="leftItem">Dealer Email</div>
+            <div class="rightItem">@Html.TextBoxFor(a => a.DealerEmail, new { maxlength = 50, @id = "txtDealerEmail", @class = "textbox" }) <span class="mandatory">*</span></div>
+        </div>
+        <div class="row">
+            <div class="leftItem">Dealer Contact </div>
+            <div class="rightItem">@Html.TextBoxFor(a => a.DealerContact, new { maxlength = 50, @class = "textbox" })</div>
+        </div>
+        <div class="row">
+            <div class="leftItem">Phone  </div>
+            <div class="rightItem">@Html.TextBoxFor(a => a.Phone, new { maxlength = 20, @class = "textbox" })</div>
+        </div>
+        <div class="row">
+            <div class="leftItem">Dealer ABN   </div>
+            <div class="rightItem">@Html.TextBoxFor(a => a.DealerABN, new { maxlength = 15, @class = "textbox" })</div>
+        </div>
+        <div class="row">
+            <div class="leftItem">Vehicle description</div>
+            <div class="rightItem">@Html.TextAreaFor(a => a.Description, new { maxlength = 300, @class = "textbox" }) </div>
+        </div>
+        <div class="row">
+            @if (string.IsNullOrEmpty(Model.Id))
+            {
+                <div class="leftItem">Car Photo</div>
+            }
+            else
+            {
+                <div class="leftItem">Update Car Photo</div>
+            }
+            <div class="rightItem"><input type="file" name="carPhoto" style="width:308px;"> <span>Accept *.jpg, *.gif and *.png files</span></div>
+        </div>
+
+        <div class="row">
+            <div class="leftItem"></div>
+            <div class="rightItem">
+                <div class="error" style="padding-left: 200px;">
+                    @if (Model.ResponseDetails != null && !Model.ResponseDetails.IsSuccessful)
+                    {
+                        @Model.ResponseDetails.Message
+
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="row" style="padding-left:370px; ">
+            <input id="btnSubmit" type="submit" value="Submit" onclick="return validateDealerDetails()">
+        </div>
+        @Html.HiddenFor(a => Model.Id);
+        @Html.HiddenFor(a => Model.Photo);
+    }
+</div>
+
+<script type="text/javascript">
+    function validateDealerDetails() {
+        if ($.trim($("#txtYear").val()).length > 0 && !isInteger($("#txtYear").val())) {
+            $(".error").html("Year is not valid.");
+            return false;
+        }
+        if ($.trim($("#txtPrice").val()).length > 0 && !isDecimal($("#txtPrice").val())) {
+            $(".error").html("Price must be number and cotains two decimal point.");
+            return false;
+        }
+        if ($.trim($("#txtDealerEmail").val()).length == 0) {
+            $(".error").html("Dealer email can not be empty.");
+            return false;
+        }
+        else if (!isEmailAddress($("#txtDealerEmail").val())) {
+            $(".error").html("Email is not correct format");
+            return false;
+        }
+        return true;
+    }
+</script>

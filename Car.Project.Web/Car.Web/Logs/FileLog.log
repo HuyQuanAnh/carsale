@@ -1,0 +1,5 @@
+2016-04-04 15:53:14.7048|ERROR|Carsale.Web.Controllers.AuthenticatedControllerBase|Exception was thrown from controller Car while executing action CarList  
+2016-04-04 15:53:19.3614|ERROR|Carsale.Web.Controllers.AuthenticatedControllerBase|Exception was thrown from controller Car while executing action CarList  
+2016-04-04 16:03:40.8983|ERROR|Carsale.Web.Controllers.AuthenticatedControllerBase|Exception was thrown from controller Car while executing action CarDetails  
+2016-04-04 21:53:22.9813|ERROR|Carsale.Web.Controllers.CarController|Object reference not set to an instance of an object.
+2016-04-04 21:55:46.5166|ERROR|Carsale.Web.Controllers.CarController|Object reference not set to an instance of an object.
